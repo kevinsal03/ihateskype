@@ -1,7 +1,4 @@
 import { app, BrowserWindow } from 'electron';
-import { keys } from './keys';
-var firebase = require('firebase');
-var firebaseui = require('firebaseui');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -59,17 +56,5 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
 
-//define keys from keys.js
-var firebaseApiKey = keys.FIREBASE_KEY;
-var firebaseMessagingSenderId = keys.FIREBASE_MSG_SEND_ID;
-
-// Initialize Firebase
-var config = {
-  apiKey: firebaseApiKey,
-  authDomain: "ihateskype-4d692.firebaseapp.com",
-  databaseURL: "https://ihateskype-4d692.firebaseio.com",
-  projectId: "ihateskype-4d692",
-  storageBucket: "ihateskype-4d692.appspot.com",
-  messagingSenderId: firebaseMessagingSenderId
-};
-firebase.initializeApp(config);
+//include in firebase app
+var firebaseApp = require('./firebase.js');
