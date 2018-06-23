@@ -58,4 +58,4 @@ app.on('activate', () => {
 
 //include in firebase app
 require('./firebase.js');
-//import 'bootstrap';
+var PubNub = require('pubnub')
