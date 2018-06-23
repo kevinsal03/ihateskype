@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Home</title>
+      <script src="deps.js"></script>
+      <style>
+      .nooverflow{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .chatlink {
+        width: inherit;
+        height: 7.5vh;
+        overflow: hidden;
+        border-bottom: 1px solid black;
+      }
+      .profilepic {
+        height: 5vh;
+        width: 5vh;
+      }
+      .ppcontainer {
+        padding-top: 1.25vh;
+        padding-bottom: 1.25vh;
+        padding-left: .4vh;
+        padding-right: .4h;
+        width: 5.8vh;
+        float: left;
+      }
+      .profiletextcontainer {
+        padding-top: 1.25vh;
+        padding-bottom: 1.25vh;
+        padding-left: .4vh;
+        padding-right: .4h;
+        width: 5.8vh;
+      }
+      #titlespace {
+        background-color: #4b586d;
+        color: white;
+        height: 50px;
+        border-bottom: 1px solid black;
+      }
+      #chatscontainer {
+        background-color: #4b586d;
+        height: calc(100vh - 50px);
+        width: 300px;
+        color: white;
+        overflow-y: scroll;
+        overflow-x: hidden;
+      }
+      </style>
+    </head>
+    <body>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12" id="titlespace">
+            <span>titlespace</span>
+          </div>
+          <div class="nooverflow" id="chatscontainer">
+            <div class="chatlink">
+              <div class="ppcontainer">
+                <img class="profilepic" src="plus.png" alt="pic"></img>
+              </div>
+              <div class="profiletextcontainer">
+                <span>Add Friend</span>
+                <br>
+                <span style="font-size: .8em">Add friend by username or code</span>
+              </div>
+            </div>
+            <!-- gen 1 for each user -->
+            <div class="chatlink">
+              <div class="ppcontainer">
+                <img class="profilepic" src="profilepic.jpg" alt="pic"></img>
+              </div>
+              <div class="profiletextcontainer">
+                <span>name</span>
+                <br>
+                <span style="font-size: .8em">last message</span>
+              </div>
+            </div>
+          </div>
+          <div id="chatwindow" class="col">
+            <span>Content</span>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
