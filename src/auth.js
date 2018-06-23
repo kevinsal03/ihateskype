@@ -20,13 +20,20 @@ document.getElementById("loginBtn").addEventListener('click', e=>{
 })
 
 //Logout Handler
-firebase.auth().onAuthStateChanged(user=>{
-  if(user) {
-    document.getElementById("logOutBtn").classList.remove('hide')
-    document.getElementById("userControlDiv").classlist.add('hide')
-  } else {
-    document.getElementById("logOutBtn").classList.add('hide')
-    document.getElementById("userControlDiv").classlist.remove('hide')
-
-  }
+document.getElementById("logOutBtn").addEventListener('click', e=>{
+  firebase.auth().signOut();
+  console.log('logged out')
 })
+
+//Check if Signed in
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    document.getElementById("logOutBtn").show
+    document.getElementById("userControlDiv").hide
+  } else {
+    // No user is signed in.
+    document.getElementById("logOutBtn").hide
+    document.getElementById("userControlDiv").show
+  }
+});

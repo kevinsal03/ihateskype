@@ -4,29 +4,35 @@
       <meta charset="UTF-8">
       <title>Hello World!</title>
       <script src="deps.js"></script>
-      <script src="auth.js"></script>
     </head>
     <body>
       <div id="userControlDiv">
+        <div id="userSignUpDiv">
+          <h1>Sign Up</h1>
+          <!--Login Form-->
+          <label for="signUpEmailInput"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" id="signUpEmailInput" required>
+
+          <label for="signUpPasswordInput"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" id="signUpPasswordInput" required>
+
+          <button id="signUpBtn">Sign Up</button>
+        </div>
         <div id="userLoginDiv">
           <h1>Login</h1>
-          <!--Login Form-->
-          <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="signUpEmailInput" required>
-
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-
-          <button type="submit">Login</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-          </label>
-        </div>
-        <div id="userLoginDiv">
-          <h1>Sign Up</h1>
           <!--Sign Up Form-->
+          <label for="loginEmailInput"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" id="loginEmailInput" required>
 
+          <label for="loginPasswordInput"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" id="loginPasswordInput" required>
+
+          <button id="loginBtn">Login</button>
         </div>
       </div>
+
+      <button id="logOutBtn" hidden>Log Out</button>
+
+      <script src="auth.js"></script>
     </body>
   </html>
