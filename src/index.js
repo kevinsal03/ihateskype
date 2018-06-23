@@ -57,4 +57,5 @@ app.on('activate', () => {
 // code. You can also put them in separate files and import them here.
 
 //include in firebase app
-var firebaseApp = require('./firebase.js');
+require('./firebase.js');
+//import 'bootstrap';

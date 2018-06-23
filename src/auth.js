@@ -1,6 +1,7 @@
 var firebase = require('firebase');
-var firebaseApp = require('./firebase.js');
+require('./firebase.js');
 
+$(function() {
 //Sign Up Handler
 
 document.getElementById("signUpBtn").addEventListener('click', e=>{
@@ -25,15 +26,17 @@ document.getElementById("logOutBtn").addEventListener('click', e=>{
   console.log('logged out')
 })
 
-//Check if Signed in
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    document.getElementById("logOutBtn").show
-    document.getElementById("userControlDiv").hide
-  } else {
-    // No user is signed in.
-    document.getElementById("logOutBtn").hide
-    document.getElementById("userControlDiv").show
-  }
+
+  //Check if Signed in
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      document.getElementById("logOutBtn").show
+      document.getElementById("userControlDiv").hide
+    } else {
+      // No user is signed in.
+      document.getElementById("logOutBtn").hide
+      document.getElementById("userControlDiv").show
+    }
+  });
 });
