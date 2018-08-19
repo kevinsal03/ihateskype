@@ -4,52 +4,6 @@
       <meta charset="UTF-8">
       <title>Home</title>
       <script src="deps.js"></script>
-      <style>
-      .nooverflow{
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .chatlink {
-        width: inherit;
-        height: 7.5vh;
-        overflow: hidden;
-        border-bottom: 1px solid black;
-      }
-      .profilepic {
-        height: 5vh;
-        width: 5vh;
-      }
-      .ppcontainer {
-        padding-top: 1.25vh;
-        padding-bottom: 1.25vh;
-        padding-left: .4vh;
-        padding-right: .4h;
-        width: 5.8vh;
-        float: left;
-      }
-      .profiletextcontainer {
-        padding-top: 1.25vh;
-        padding-bottom: 1.25vh;
-        padding-left: .4vh;
-        padding-right: .4h;
-        width: 5.8vh;
-      }
-      #titlespace {
-        background-color: #4b586d;
-        color: white;
-        height: 50px;
-        border-bottom: 1px solid black;
-      }
-      #chatscontainer {
-        background-color: #4b586d;
-        height: calc(100vh - 50px);
-        width: 300px;
-        color: white;
-        overflow-y: scroll;
-        overflow-x: hidden;
-      }
-      </style>
     </head>
     <body>
       <div class="container-fluid">
@@ -57,8 +11,8 @@
           <div class="col-12" id="titlespace">
             <span>titlespace</span>
           </div>
-          <div class="nooverflow" id="chatscontainer">
-            <div class="chatlink">
+          <div class="nooverflow noSelect" id="chatscontainer">
+            <div class="chatlink" onclick="alert('Adding friends is not a thing yet')">
               <div class="ppcontainer">
                 <img class="profilepic" src="plus.png" alt="pic"></img>
               </div>
@@ -69,7 +23,7 @@
               </div>
             </div>
             <!-- gen 1 for each user -->
-            <div class="chatlink">
+            <div class="chatlink" onclick="alert('You clicked on a chat link')">
               <div class="ppcontainer">
                 <img class="profilepic" src="profilepic.jpg" alt="pic"></img>
               </div>
@@ -82,6 +36,14 @@
           </div>
           <div id="chatwindow" class="col">
             <span>Content</span>
+            <div id="chatmessagewindow">
+              <div id="chatmessagewindow_form">
+                <form action="https://ihs.salvatorelli.ml/client/functions/sendMessage.php" method="post">
+                  <input type="text" name="message" placeholder="Type a message here">
+                  <input type="hidden" name="chatid" value="fuck" readonly>
+                  <input type="button" name="submit" id="message_submit" action="submit" value="Send">
+                </form>
+              </div>
           </div>
         </div>
       </div>

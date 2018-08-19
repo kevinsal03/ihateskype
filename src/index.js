@@ -59,3 +59,7 @@ app.on('activate', () => {
 //include in firebase app
 require('./firebase.js');
 var PubNub = require('pubnub')
+
+//Include electron-unhandled to handle unhandled errors
+const unhandled = require('electron-unhandled');
+unhandled();
