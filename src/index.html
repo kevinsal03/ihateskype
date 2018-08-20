@@ -6,12 +6,18 @@
       <script src="deps.js"></script>
     </head>
     <body>
-      <h1>Hello World!</h1>
+    <!--  <h1>Hello World!</h1>
       We are using node <script>document.write(process.versions.node)</script>,
       Chrome <script>document.write(process.versions.chrome)</script>,
       and Electron <script>document.write(process.versions.electron)</script>.
       <a href="auth.html">login</a>
       <a href="home.html">home</a>
-      <a href="about.html">about</a>
+      <a href="about.html">about</a>-->
+      <script>
+      //Check if user is logged in, check otherwise open sign in window
+      window.open("https://ihs.salvatorelli.ml/server/login.html", "_blank", "toolbar=no,scrollbars=no,status=no,menubar=no,resizable=no,width=600,height=600");
+      </script>
+      <h1>Not signed in</h1>
+      <h5>Signing in</h5>
     </body>
   </html>

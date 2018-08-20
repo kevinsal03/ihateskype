@@ -57,8 +57,7 @@ app.on('activate', () => {
 // code. You can also put them in separate files and import them here.
 
 //include in firebase app
-//require('./firebase.js'); FIREBASE LEAVES VULN PKG IN
-//var PubNub = require('pubnub')
+require('./firebase.js');
 
 //Include electron-unhandled to handle unhandled errors
 const unhandled = require('electron-unhandled');
