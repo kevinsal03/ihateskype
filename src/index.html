@@ -23,7 +23,7 @@
         }
       }
       if(store.get('token') == undefined){
-        document.write("<h1>Not signed in</h1><br><p>Please login in the popup window");
+        document.write("<h1>Not signed in</h1><br><p>Please login in the popup window<br><a href='#' onclick='window.location = window.location;'>Reopen the popup</a></p>'");
         window.open("https://ihs.salvatorelli.ml/server/login.html", "_blank", "toolbar=no,scrollbars=no,status=no,menubar=no,resizable=no,width=600,height=600");
       } else {
         console.log("logged in");

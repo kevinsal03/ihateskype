@@ -9,12 +9,12 @@
     <body>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12" id="titlespace">
+          <div class="col-12 noSelect" id="titlespace">
             <span>titlespace</span>
             <span style="float: right;" onclick="store.delete('token'); store.delete('user'); window.location = window.location;"><script>document.write(store.get('user'));</script></span>
           </div>
           <div class="nooverflow noSelect" id="chatscontainer">
-            <div class="chatlink" onclick="alert('Adding friends is not a thing yet')">
+            <div class="chatlink" onclick="alert('You cant add any frineds, you dont have any...')">
               <div class="ppcontainer">
                 <img class="profilepic" src="plus.png" alt="pic"></img>
               </div>
