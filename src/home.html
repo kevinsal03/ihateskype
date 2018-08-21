@@ -4,12 +4,14 @@
       <meta charset="UTF-8">
       <title>Home</title>
       <script src="deps.js"></script>
+      <script src="restricted.js"></script>
     </head>
     <body>
       <div class="container-fluid">
         <div class="row">
           <div class="col-12" id="titlespace">
             <span>titlespace</span>
+            <span style="float: right;" onclick="store.delete('token'); store.delete('user'); window.location = window.location;"><script>document.write(store.get('user'));</script></span>
           </div>
           <div class="nooverflow noSelect" id="chatscontainer">
             <div class="chatlink" onclick="alert('Adding friends is not a thing yet')">

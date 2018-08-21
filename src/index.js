@@ -56,9 +56,6 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
 
-//include in firebase app
-require('./firebase.js');
-
 //Include electron-unhandled to handle unhandled errors
 const unhandled = require('electron-unhandled');
 unhandled();
