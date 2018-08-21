@@ -15,9 +15,22 @@
       <a href="about.html">about</a>-->
       <script>
       //Check if user is logged in, check otherwise open sign in window
-      window.open("https://ihs.salvatorelli.ml/server/login.html", "_blank", "toolbar=no,scrollbars=no,status=no,menubar=no,resizable=no,width=600,height=600");
+      function wait(ms){
+         var start = new Date().getTime();
+         var end = start;
+         while(end < start + ms) {
+           end = new Date().getTime();
+        }
+      }
+      if(store.get('token') == undefined){
+        document.write("<h1>Not signed in</h1><br><p>Please login in the popup window");
+        window.open("https://ihs.salvatorelli.ml/server/login.html", "_blank", "toolbar=no,scrollbars=no,status=no,menubar=no,resizable=no,width=600,height=600");
+      } else {
+        console.log("logged in");
+        console.log(store.get('token'));
+        document.write("workign!<br>");
+        document.write(store.get('token'));
+      }
       </script>
-      <h1>Not signed in</h1>
-      <h5>Signing in</h5>
     </body>
   </html>
