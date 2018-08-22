@@ -6,3 +6,4 @@ document.write('<link rel="stylesheet" href="main.css">');
 document.write("<script>const {app} = require('electron').remote</script>");
 document.write("<script>const Store = require('electron-store');</script>");
 document.write("<script>const store = new Store();</script>");
+const {shell} = require('electron');
