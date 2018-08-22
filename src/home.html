@@ -5,13 +5,14 @@
       <title>Home</title>
       <script src="deps.js"></script>
       <script src="restricted.js"></script>
+      <script>function wait(ms){var start = new Date().getTime();var end = start;while(end < start + ms) {end = new Date().getTime();}}</script>
     </head>
     <body>
       <div class="container-fluid">
         <div class="row">
           <div class="col-12 noSelect" id="titlespace">
             <span>titlespace</span>
-            <span style="float: right;" onclick="store.delete('token'); store.delete('user'); window.location = window.location;"><script>document.write(store.get('user'));</script></span>
+            <span style="float: right;" onclick="signOut();"><script>document.write(store.get('user'));</script></span>
           </div>
           <div class="nooverflow noSelect" id="chatscontainer">
             <div class="chatlink" onclick="alert('You cant add any frineds, you dont have any...')">
@@ -40,10 +41,39 @@
             <span>Content</span>
             <div id="chatmessagewindow">
               <div id="chatmessagewindow_form">
-                <form action="https://ihs.salvatorelli.ml/client/functions/sendMessage.php" method="post">
-                  <input type="text" name="message" placeholder="Type a message here">
-                  <input type="hidden" name="chatid" value="fuck" readonly>
-                  <input type="button" name="submit" id="message_submit" action="submit" value="Send">
+                <form id="messageform" action="https://ihs.salvatorelli.ml/client/functions/sendMessage.php" method="post">
+                  <input type="text" id="msgvis" placeholder="Type a message here">
+                  <input type="hidden" name="message" id="msgfinal" value="<SYSTEM ERROR>" readonly>
+                  <input type="hidden" name="chatid" id="msgcid" value="fuck" readonly>
+                  <input type="hidden" name="token" id="msgtoken" value="" readonly>
+                  <input type="hidden" name="uid" id="msguid" value="" readonly>
+                  <input type="button" name="submit" id="message_submit" onclick="sendMessage();" value="Send">
+                  <script>
+                  //Dynamically populate variables for chat post
+                  document.getElementById("msgtoken").value = store.get('token');
+                  document.getElementById("msguid").value = store.get('uid');
+                  document.getElementById('msgvis').onkeydown = function(e){
+                    if(e.keyCode == 13){
+                     sendMessage();
+                    }
+                  };
+                  document.getElementById("msgvis").onkeypress = function(e) {
+                    var key = e.charCode || e.keyCode || 0;
+                    if (key == 13) {
+                      e.preventDefault();
+                      console.log("prevented default submit method")
+                    }
+                  }
+                  function sendMessage(){
+                    document.getElementById('message_submit').disabled = true;
+                    document.getElementById("msgfinal").value = document.getElementById("msgvis").value;
+                    document.getElementById("msgvis").value = "";
+                    document.getElementById("messageform").submit;
+                    console.log('Sending Message "' + document.getElementById("msgfinal").value + '" From User: "' + document.getElementById("msguid").value + '" To Chat with ID: "' + document.getElementById("msgcid").value + '"');
+                    document.getElementById("msgfinal").value = "<SYSTEM ERROR>";
+                    document.getElementById("message_submit").disabled = false;
+                    }
+                  </script>
                 </form>
               </div>
           </div>
